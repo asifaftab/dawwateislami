@@ -1,0 +1,17 @@
+Name
+Father Name
+
+email
+nationalaity
+
+address // textarea
+
+Date of birth
+Form timw
+File 
+
+Gender iske lye radio button use hoga
+
+Car , Apna gar he , Laptop he , Android Mobile ///Checkbox
+
+Submit ka button hoga

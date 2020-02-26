@@ -1,0 +1,49 @@
+static nating
+
+Router>en
+Router#show ip nat translations 
+Router#conf t
+Router(config)#ip nat inside source static 10.0.0.2 122.1.1.1
+Router(config)#ip nat inside source static 10.0.0.2 122.1.1.2
+
+Router#conf t
+Router(config)#interface fastEthernet 0/0
+Router(config-if)#ip nat inside 
+Router(config-if)#ex
+Router(config)#interface serial 0/2/0
+Router(config-if)#ip nat outside 
+Router(config-if)#ex
+Router(config)#
+
+Dynamic nating
+Router>en
+Router#show ip nat translations 
+Router#conf t
+Router(config)#access-list 1 permit 10.0.0.0 0.255.255.255
+Router(config)#ip nat pool ccna 122.1.1.1 122.1.1.4 netmask 255.255.255.0
+Router(config)#ip nat inside source list 1 pool ccna
+Router(config)#interface fastEthernet 0/0
+Router(config-if)#ip nat inside 
+Router(config-if)#ex
+Router(config)#interface serial 0/2/0
+Router(config-if)#ip nat outside 
+Router(config-if)#ex
+Router(config)#
+
+Port Address Translation PAT
+Router>en
+Router#show ip nat translations 
+Router#conf t
+Router(config)#access-list 1 permit 10.0.0.0 0.255.255.255
+Router(config)#ip nat pool ccna 122.1.1.1 122.1.1.1 netmask 255.255.255.0
+Router(config)#ip nat inside source list 1 pool ccna overload 
+Router(config)#!^Z
+
+Router#conf t
+Router(config)#interface fastEthernet 0/0
+Router(config-if)#ip nat inside 
+Router(config-if)#ex
+Router(config)#interface serial 0/2/0
+Router(config-if)#ip nat outside 
+Router(config-if)#ex
+Router(config)#
